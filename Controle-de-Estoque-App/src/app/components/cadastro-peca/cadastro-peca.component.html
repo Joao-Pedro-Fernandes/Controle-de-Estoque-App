@@ -1,0 +1,72 @@
+<div class="dialog-content-wrapper">
+  <mat-toolbar class="color-blue m-0" color="primary">
+      <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+
+        <h1>Cadastrar nova peça</h1>
+
+        <button mat-icon-button (click)="matDialogRef.close()" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
+
+      </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div class="form-container">
+    <form [formGroup]="cadastroForm" fxLayout="row wrap" fxLayoutAlign="center">
+
+      <mat-form-field appearance="outline" fxFlex="80" #marcaInput>
+        <mat-label>Marca</mat-label>
+        <input matInput formControlName="marca" placeholder="Marca">
+        <mat-error *ngIf="cadastroForm.get('marca')?.hasError('required')">Campo necessário</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" fxFlex="80">
+        <mat-label>Modelo</mat-label>
+        <input matInput formControlName="modelo" placeholder="Modelo">
+        <mat-error *ngIf="cadastroForm.get('modelo')?.hasError('required')">Campo necessário</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" fxFlex="80">
+        <mat-label>Cor</mat-label>
+        <input matInput formControlName="cor" placeholder="Cor">
+        <mat-error *ngIf="cadastroForm.get('cor')?.hasError('required')">Campo necessário</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" fxFlex="80">
+        <mat-label>Grau de Imp.</mat-label>
+        <mat-select disableRipple formControlName="grau_Importancia">
+          <mat-option value="alto">Alto</mat-option>
+          <mat-option value="medio">Médio</mat-option>
+          <mat-option value="baixo">Baixo</mat-option>
+          <mat-option value="excecao">Exceção</mat-option>
+        </mat-select>
+        <mat-error *ngIf="cadastroForm.get('grau_Importancia')?.hasError('required')">Campo necessário</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline" fxFlex="80">
+        <mat-label>Quantidade</mat-label>
+        <input type="number" matInput formControlName="quantidade_Estoque" placeholder="Quantidade em Estoque">
+        <mat-error *ngIf="cadastroForm.get('quantidade_Estoque')?.hasError('required')">Campo necessário</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" fxFlex="80">
+        <mat-label>Localização</mat-label>
+        <input matInput formControlName="localizacao" placeholder="Localização da Peça">
+        <mat-error *ngIf="cadastroForm.get('localizacao')?.hasError('required')">Campo necessário</mat-error>
+      </mat-form-field>
+
+      <div fxFlex="80" fxLayoutAlign="center">
+        <button color="primary" mat-raised-button [disabled]="cadastroForm.invalid" (click)="createPeca()">Cadastrar</button>
+      </div>
+
+
+    </form>
+
+
+
+  </div>
+
+
+
+</div>

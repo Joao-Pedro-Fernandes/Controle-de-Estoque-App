@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+// Define uma paleta personalizada
+$custom-primary: mat.define-palette(mat.$blue-palette, 900);
+$custom-accent: mat.define-palette(mat.$indigo-palette, 900, 300, A700);
+$custom-warn: mat.define-palette(mat.$red-palette);
+
+// Cria o tema
+$custom-theme: mat.define-light-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-accent,
+    warn: $custom-warn,
+  )
+));
+
+@include mat.all-component-themes($custom-theme);
+@include mat.core();
+
+
+html, body { height: 100%; margin: 0;}
+body { height: 100%; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #E3F2FD;}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.content {
+  padding: 16px;
+  overflow-x: hidden;
+  height: 83vh;
+}
+
+.mat-row:hover {
+  background-color: LightSteelBlue;
+  cursor: pointer;
+}

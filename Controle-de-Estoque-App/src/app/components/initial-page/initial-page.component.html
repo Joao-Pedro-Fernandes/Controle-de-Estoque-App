@@ -1,0 +1,79 @@
+<mat-toolbar color="primary">
+  <span class="title">StockTrack</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/home">Home</button>
+  <button mat-button routerLink="/about">Sobre</button>
+  <button mat-button routerLink="/contact">Contato</button>
+</mat-toolbar>
+
+
+<div class="container-table" fxLayout="column" fxLayoutAlign="center stretch">
+
+  <div class="button-container" fxLayout="row" fxLayoutAlign="end center">
+    <button mat-fab class="button" (click)="openDialog()" color="primary" title="Adicionar nova peça">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="container-input">
+    <mat-form-field class="filter-input" appearance="outline">
+      <mat-label>Pesquise</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let peca"> {{peca.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="marca">
+      <th mat-header-cell *matHeaderCellDef> Marca </th>
+      <td mat-cell *matCellDef="let peca"> {{peca.marca | uppercase}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="modelo">
+      <th mat-header-cell *matHeaderCellDef> Modelo </th>
+      <td mat-cell *matCellDef="let peca"> {{peca.modelo | uppercase}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cor">
+      <th mat-header-cell *matHeaderCellDef> Cor </th>
+      <td mat-cell *matCellDef="let peca"> {{peca.cor | uppercase}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="grau_Importancia">
+      <th mat-header-cell *matHeaderCellDef> Grau Imp. </th>
+      <td mat-cell *matCellDef="let peca"> {{peca.grau_Importancia | uppercase}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantidade_Estoque">
+      <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+      <td mat-cell *matCellDef="let peca" [ngClass]="{'green-row': peca.quantidade_Estoque > 0, 'red-row': peca.quantidade_Estoque <= 0}">
+        {{peca.quantidade_Estoque}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="localizacao">
+      <th mat-header-cell *matHeaderCellDef> Localização </th>
+      <td mat-cell *matCellDef="let peca"> {{peca.localizacao | uppercase}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-header"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="mat-row" (click)="openEdit(row)"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">Dados não foram encontrados "{{input.value}}"</td>
+    </tr>
+  </table>
+</div>
+
+<mat-toolbar color="primary" class="foot-page">
+  <span class="title">StockTrack</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/home">Home</button>
+  <button mat-button routerLink="/about">Sobre</button>
+  <button mat-button routerLink="/contact">Contato</button>
+</mat-toolbar>

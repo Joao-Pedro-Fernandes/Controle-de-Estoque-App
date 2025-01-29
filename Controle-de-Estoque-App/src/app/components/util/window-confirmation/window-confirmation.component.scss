@@ -1,0 +1,36 @@
+.confirm-form-dialog {
+
+  .color-green {
+      background-color: #00a852 !important;
+      color: white !important;
+  }
+
+  .color-blue {
+      background-color: #0d47a1 !important;
+      color: white !important;
+  }
+
+  .mat-dialog-container {
+      padding: 0;
+  }
+
+  .dialog-content-wrapper {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .primary-color-input,
+  .secondary-color-input {
+      padding: 6px 8px;
+  }
+}
+
+mat-form-field {
+  margin-top: 15px;
+}
+
+.form-container {
+  margin:auto;
+  margin-top: 15px;
+}
+

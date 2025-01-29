@@ -1,0 +1,31 @@
+
+<div class="dialog-content-wrapper">
+  <mat-toolbar class="color-blue m-0" color="primary">
+      <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+
+        <h1>Confirmação</h1>
+
+        <button mat-icon-button (click)="matDialogRef.close()" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
+
+      </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div class="form-container" fxLayout="column" fxLayoutAlign="center center">
+
+    <div fxLayoutAlign="center" fxLayoutGap="16px">
+      <h3>
+        Deseja mesmo excluir?
+      </h3>
+    </div>
+
+    <div fxLayoutAlign="center" fxLayoutGap="16px">
+      <button color="warn" mat-raised-button (click)="onConfirm()">Excluir</button>
+      <button color="primary" mat-raised-button (click)="onCancel()">Cancelar</button>
+    </div>
+  </div>
+
+
+
+</div>

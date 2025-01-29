@@ -1,0 +1,22 @@
+mat-form-field {
+  margin-right: 12px;
+}
+
+.snackbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  color: #000 !important;
+}
+
+.snackbar-button {
+  color: #5482ec;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background-color: white;
+}
