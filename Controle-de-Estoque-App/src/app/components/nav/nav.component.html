@@ -1,0 +1,29 @@
+<mat-sidenav-container class="sidenav-container" >
+
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list class="nav-list">
+        <a class="item" mat-list-item [routerLink]="['/initial']"><mat-icon>home</mat-icon><p>Página Inicial</p></a>
+        <a class="item" mat-list-item [routerLink]="['/pecas-faltosas']"><mat-icon>smartphone</mat-icon><p>Peças Faltosas</p></a>
+        <a class="item" mat-list-item [routerLink]="['/chegada-pecas']"><mat-icon>shopping_cart</mat-icon><p>Compra de Peças</p></a>
+        <a class="item" mat-list-item [routerLink]="['/chegada-pecas']"><mat-icon>perm_device_information</mat-icon><p>Garantias</p></a>
+        <a class="item" mat-list-item [routerLink]="['/chegada-pecas']"><mat-icon>assignment</mat-icon><p>Relatórios</p></a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="primary" >
+      <button mat-icon-button class="menu-button" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>StockTrack</span>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

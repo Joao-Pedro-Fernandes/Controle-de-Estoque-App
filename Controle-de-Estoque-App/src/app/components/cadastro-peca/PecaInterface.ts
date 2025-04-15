@@ -1,8 +1,9 @@
 export interface Peca {
+  id: number;
   marca: string;
   modelo: string;
   cor: string;
   grau_Importancia: string;
-  quantidade_Estoque: number;
+  idsCompatibilidades: number[];
   localizacao: string;
 }

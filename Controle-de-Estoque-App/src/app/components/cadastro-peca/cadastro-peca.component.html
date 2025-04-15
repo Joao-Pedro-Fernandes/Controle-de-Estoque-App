@@ -12,27 +12,27 @@
   </mat-toolbar>
 
   <div class="form-container">
-    <form [formGroup]="cadastroForm" fxLayout="row wrap" fxLayoutAlign="center">
+    <form [formGroup]="cadastroForm" fxLayout="row wrap" fxLayoutAlign="center" class="formulario">
 
-      <mat-form-field appearance="outline" fxFlex="80" #marcaInput>
+      <mat-form-field appearance="outline" fxFlex="80" #marcaInput  class="form-small">
         <mat-label>Marca</mat-label>
         <input matInput formControlName="marca" placeholder="Marca">
         <mat-error *ngIf="cadastroForm.get('marca')?.hasError('required')">Campo necessário</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" fxFlex="80">
+      <mat-form-field appearance="outline" fxFlex="80"  class="form-small">
         <mat-label>Modelo</mat-label>
         <input matInput formControlName="modelo" placeholder="Modelo">
         <mat-error *ngIf="cadastroForm.get('modelo')?.hasError('required')">Campo necessário</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" fxFlex="80">
+      <mat-form-field appearance="outline" fxFlex="80"  class="form-small">
         <mat-label>Cor</mat-label>
         <input matInput formControlName="cor" placeholder="Cor">
         <mat-error *ngIf="cadastroForm.get('cor')?.hasError('required')">Campo necessário</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" fxFlex="80">
+      <mat-form-field appearance="outline" fxFlex="80"  class="form-small">
         <mat-label>Grau de Imp.</mat-label>
         <mat-select disableRipple formControlName="grau_Importancia">
           <mat-option value="alto">Alto</mat-option>
@@ -43,14 +43,27 @@
         <mat-error *ngIf="cadastroForm.get('grau_Importancia')?.hasError('required')">Campo necessário</mat-error>
       </mat-form-field>
 
+      <div fxFlex="80">
+        <mat-form-field appearance="outline" fxFlex="100"  class="form-small">
+          <mat-label>Compatibilidade</mat-label>
+          <input type="text" matInput [formControl]="searchControl" placeholder="Pesquise" [matAutocomplete]="auto">
 
-      <mat-form-field appearance="outline" fxFlex="80">
-        <mat-label>Quantidade</mat-label>
-        <input type="number" matInput formControlName="quantidade_Estoque" placeholder="Quantidade em Estoque">
-        <mat-error *ngIf="cadastroForm.get('quantidade_Estoque')?.hasError('required')">Campo necessário</mat-error>
-      </mat-form-field>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="pecaSelecionada($event.option.value)">
+            <mat-option *ngFor="let peca of pecasFiltradas$ | async" [value]="peca">
+              {{ peca.marca }} - {{ peca.modelo }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <div *ngIf="pecasSelecionadas.length > 0" fxFlex="100" class="pecas-lista">
+          <small *ngFor="let peca of pecasSelecionadas">
+            - {{ peca.marca }} {{ peca.modelo }}
+          </small>
+        </div>
+      </div>
 
-      <mat-form-field appearance="outline" fxFlex="80">
+
+
+      <mat-form-field appearance="outline" fxFlex="80"  class="form-small">
         <mat-label>Localização</mat-label>
         <input matInput formControlName="localizacao" placeholder="Localização da Peça">
         <mat-error *ngIf="cadastroForm.get('localizacao')?.hasError('required')">Campo necessário</mat-error>

@@ -14,7 +14,7 @@ mat-toolbar {
 .container-table {
   margin: auto;
   margin-top: 20px;
-  width: 90%; /* Use 100% para garantir que a tabela use todo o espaço */
+  width: 90%;
   display: flex;
   flex-direction: column;
 }
@@ -52,5 +52,5 @@ mat-toolbar {
 
 .foot-page {
   width: 100vh;
-  margin-top: 50px !important;
+  visibility: hidden;
 }

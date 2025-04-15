@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatAutocomplete } from '@angular/material/autocomplete';
 
 
 
@@ -28,6 +29,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatToolbarModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatAutocomplete,
     MatSelectModule,
     MatDialogModule,
     FormsModule,

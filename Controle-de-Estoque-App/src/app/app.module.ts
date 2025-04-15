@@ -19,6 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { WindowConfirmationModule } from './components/util/window-confirmation/window-confirmation.module';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { NavModule } from './components/nav/nav.module';
 
 @NgModule({
   imports: [
@@ -30,6 +32,7 @@ import { WindowConfirmationModule } from './components/util/window-confirmation/
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSidenavModule,
     RouterModule.forRoot(routes),
     HomeModule,
     CadastroPecaModule,
@@ -41,7 +44,8 @@ import { WindowConfirmationModule } from './components/util/window-confirmation/
     WindowEditPecaModule,
     FormsModule,
     MatSnackBarModule,
-    WindowConfirmationModule
+    WindowConfirmationModule,
+    NavModule
   ],
   declarations: [
     AppComponent

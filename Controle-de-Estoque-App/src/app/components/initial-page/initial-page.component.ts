@@ -46,19 +46,23 @@ export class InitialPageComponent implements OnInit {
     const dialogRef = this.dialog.open(CadastroPecaComponent, {
 
       panelClass: 'cadastro-form-dialog',
-      width: '600px',
-      height: '670px',
+      width: '500px',
+      height: '600px',
       data: {}
     });
-    this.loadData();
+
+    dialogRef.afterClosed().subscribe( result => {
+      this.loadData();
+    })
+
   }
 
   openEdit(peca: any): void {
     const dialogEditRef = this.dialog.open(WindowEditPecaComponent, {
 
       panelClass: 'edit-form-dialog',
-      width: '600px',
-      height: '670px',
+      width: '500px',
+      height: '600px',
       data: peca
     })
 

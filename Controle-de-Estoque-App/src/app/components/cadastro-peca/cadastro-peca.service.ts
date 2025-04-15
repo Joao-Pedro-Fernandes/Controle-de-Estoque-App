@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Peca } from './PecaInterface';
 import { Observable } from 'rxjs';
+import { ApiUrl } from '../../../environments/environments';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,14 @@ import { Observable } from 'rxjs';
 
 export class CadastroPecaService {
 
-  apiUrl = 'https://localhost:7220/Pecas';
-
   constructor(private http: HttpClient) { }
 
   postCreatePeca(peca: Peca): Observable<any> {
-    return this.http.post(this.apiUrl,peca)
+    return this.http.post(ApiUrl+"/Pecas",peca)
   }
+
+  pesquisarPecas(pesquisa: string): Observable<any[]> {
+    return this.http.get<any[]>(`${ApiUrl}/Pecas/ByName=${pesquisa}`)
+   }
 
 }

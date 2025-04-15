@@ -12,7 +12,7 @@
   </mat-toolbar>
 
   <div class="form-container">
-    <form [formGroup]="editForm" fxLayout="row wrap" fxLayoutAlign="center">
+    <form [formGroup]="editForm" fxLayout="row wrap" fxLayoutAlign="center" class="formulario">
 
       <mat-form-field appearance="fill" fxFlex="80" #marcaInput>
         <mat-label>Marca</mat-label>
@@ -44,11 +44,7 @@
       </mat-form-field>
 
 
-      <mat-form-field appearance="fill" fxFlex="80">
-        <mat-label>Quantidade</mat-label>
-        <input type="number" matInput formControlName="quantidade_Estoque" placeholder="Quantidade em Estoque">
-        <mat-error *ngIf="editForm.get('quantidade_Estoque')?.hasError('required')">Campo necessário</mat-error>
-      </mat-form-field>
+
 
       <mat-form-field appearance="fill" fxFlex="80">
         <mat-label>Localização</mat-label>
@@ -58,6 +54,7 @@
 
       <div fxFlex="80" fxLayoutAlign="center" fxLayoutGap="16px">
         <button color="primary" mat-raised-button [disabled]="editForm.invalid" (click)="updatePeca()">Atualizar</button>
+        <button style="background-color: rgb(78, 167, 78); color: white;" mat-raised-button [disabled]="editForm.invalid" (click)="vender()">Vender</button>
         <button color="warn" mat-raised-button [disabled]="editForm.invalid" (click)="deletePeca()">Excluir</button>
       </div>
 
